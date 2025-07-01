@@ -20,3 +20,34 @@ public class Main
 	    
 	}
 }
+-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+import java.util.*;
+public class Main
+{
+	public static void main(String args[])
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int dec=sc.nextInt();
+	    String s="";
+	    String hex_value="0123456789ABCDEF";
+	    String hex = decToHex(dec,s,hex_value);
+	    System.out.println(hex);
+	}
+	public static String decToHex(int dec, String s, String hex_value)
+	{
+	    if(dec==0 && s.equals(""))
+	    {
+	        System.out.println("In decimal 0 represents nothing. So to represent nothing in hexadecimal we use 0 only");
+	        return "0";
+	    }
+	    if(dec==0)
+	    {
+	        return s;
+	    }
+	    int r=dec%16;
+	    s=hex_value.charAt(r)+s;
+	    dec=dec/16;
+	    return decToHex(dec,s,hex_value);
+	}
+}

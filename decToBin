@@ -1,0 +1,47 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String args[])
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int dec=sc.nextInt();
+	    String s="";
+	    int r;
+	    while(dec!=0)
+	    {
+	        r=dec%2;
+	        s=Integer.toString(r)+s;
+	        dec=dec/2;
+	    }
+	    System.out.println(s);
+	}
+}
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+import java.util.*;
+public class Main
+{
+	public static void main(String args[])
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int dec=sc.nextInt();
+	    String s="";
+	    System.out.println(decTBin(dec,s);
+  }
+  public static String decToBin(int dec, String s)
+	{
+	    if(dec==0 && s.equals(""))
+	    {
+	        System.out.println("In decimal 0 means nothing. So to represent nothing in octal no. system we use 0");
+	        return "0";
+	    }
+	    if(dec==0)
+	    {
+	        return s;
+	    }
+	    int r=dec%2;
+	    s=Integer.toString(r)+s;
+	    dec=dec/2;
+	    return decToBin(dec,s);
+	}
+  }

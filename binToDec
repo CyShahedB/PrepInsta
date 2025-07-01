@@ -1,0 +1,25 @@
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int bin=sc.nextInt();
+        int p=0;
+        
+        System.out.println(binToDec(bin,p));
+    }
+    public static int binToDec(int bin,int p)
+    {
+        if(bin==0)
+        {
+            return 0;
+        }
+        int r=bin%10;
+        bin=bin/10;
+        return r*(int)Math.pow(2,p)+binToDec(bin,p+1);
+    }
+}

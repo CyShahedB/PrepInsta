@@ -1,0 +1,22 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String args[])
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int dec=sc.nextInt();
+	    String hex_val="0123456789ABCDEF";
+	    String s=""; 
+	    char temp;
+	    int r;
+	    while(dec!=0)
+	    {
+	        r=dec%16;
+	        s=hex_val.charAt(r)+s;
+	        dec=dec/16;
+	    }
+	    System.out.println(s);
+	    
+	    
+	}
+}

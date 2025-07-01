@@ -1,0 +1,51 @@
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String hex=sc.next().toUpperCase();
+        int l=hex.length();
+        String hex_value="0123456789ABCDEF";
+        int dec=0,p=0;
+        if(hex.equals("0"))
+        {
+            System.out.println("0");
+            return;
+        }
+        while(l!=0)
+        {
+            char temp=hex.charAt(l-1);
+            int index=hex_value.indexOf(temp);
+            dec=dec+index*(int)Math.pow(16,p);
+            p++;
+            l--;
+        }
+        System.out.println(dec);
+    }
+}
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String hex=sc.next().toUpperCase();
+        String hex_Value="0123456789ABCDEF";
+        int p=0, dec=0,l=hex.length();
+        System.out.println(hexToDec(hex,p,dec,l,hex_Value));
+    }
+    public static int hexToDec(String hex, int p, int dec,int l,String hex_Value)
+    {
+        if(l==0)
+        {
+            return dec;
+        }
+        char temp=hex.charAt(l-1);
+        int index=hex_Value.indexOf(temp);
+        dec=dec+index*(int)Math.pow(16,p);
+        return hexToDec(hex,p+1,dec,l-1,hex_Value);
+    }
+}

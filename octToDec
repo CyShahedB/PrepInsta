@@ -1,0 +1,48 @@
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int oct=sc.nextInt();
+        int dec=0,p=0;
+        while(oct>0)
+        {
+            int rem=oct%10;
+            dec=dec+rem*(int)Math.pow(8,p);
+            p++;
+            oct=oct/10;
+        }
+        System.out.println(dec);
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int oct=sc.nextInt();
+        int d=0,p=0;
+        int dec=octToDec(oct,d,p);
+        System.out.println(dec);
+    }
+    public static int octToDec(int oct,int d,int p)
+    {
+        if(oct==0 && d==0)
+        {
+            return 0;
+        }
+        if(oct==0)
+        {
+            return d;
+        }
+        int rem=oct%10;
+        d=d+rem*(int)Math.pow(8,p);
+        oct=oct/10;
+        p++;
+        return octToDec(oct,d,p);
+    }
+}

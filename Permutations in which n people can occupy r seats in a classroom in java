@@ -1,0 +1,27 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int r=sc.nextInt();
+		System.out.println("No of permutations for "+n+" peple to sit in "+r+" places");
+		if(n>=r)
+		{
+		    System.out.println(factorial(n)/factorial(n-r));
+		}
+		else
+		{
+		    System.out.println(factorial(r)/factorial(r-n));
+		}
+		
+	}
+	public static int factorial(int n)
+	{
+	    if(n==0)
+	    {
+	        return 1;
+	    }
+	    return n*factorial(n-1);
+	}
+}

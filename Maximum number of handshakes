@@ -1,0 +1,22 @@
+import java.util.*;
+public class Main
+{
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.println("no of shakehands for "+n+" no. of people is: "+n*(n-1)/2);
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------
+Condition: any 2 people can do shakehand only once
+Example: n=5 (5 people) named as A,B,C,D,E
+Then A do shakehand with B,C,D and E (Total no of shakehands A does here is 4)
+Then B do shakehand with (already did with A) C,D and E (Total no of shakehands B does here is 3)
+Then C do shakehand with (already did with A and B) D and E (Total no of shakehands C does here is 2)
+Then D do shakehand with (already did with A, B and C) E (Total no of shakehands D does here is 1)
+E done with all now
+So total no of handsakes are=4+3+2+1=10
+it can be generalize as n-1 + n-2 + n-3 + n-4 + .... + 1 
+So sum of n-1 integers formula = (n-1)*(n-1+1)/2  [since sum of n digits is n*(n+1)/2]
+                               = n*(n-1)/2

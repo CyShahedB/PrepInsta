@@ -7,7 +7,7 @@ If negative numbers given convert them into positive by multiplying with -1
 If any one number zero, then gcd of two numbers is the non zero number
 Three Methods to find gcd any 2 numbers.
 ==========================================================================================================================
-1) Linear or Brute force method:
+1) Linear or Brute force method:=================
 let a,b numbers (a>b)
 if(a%b==0) then b is the gcd.
 Otherwise
@@ -16,3 +16,308 @@ if(a%n==0 && b%n==0) then gcd=n;
 then n++;
 continue this until n<=b/2;
 ---------------------------------------------------------------------------------------------------------------------------
+By using loop:===
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        int a,b,n=1,gcd=0;
+        Scanner sc=new Scanner(System.in);
+        a=sc.nextInt();
+        b=sc.nextInt();
+        
+        if(a==0 && b==0){
+            System.out.println("gcd not defined");
+            return;
+        }
+        
+        a=Math.abs(a);
+        b=Math.abs(b);
+        
+        if(a==0)
+        {
+            System.out.println("gcd is: "+b);
+            return;
+        }
+        if(b==0)
+        {
+            System.out.println("gcd is: "+a);
+            return;
+        }
+        
+        
+        if(a<b)
+        {
+            int temp;
+            temp=a;
+            a=b;
+            b=temp;
+            System.out.println(a+" "+b);
+        }
+        
+        if(a%b==0)
+        {
+            System.out.println("gcd is: "+b);
+        }
+        else{
+            while(n<=b/2)
+            {
+            if(a%n==0 && b%n==0)
+            {
+                gcd=n;
+            }
+            n++;
+            }
+            System.out.println("gcd is: "+gcd);
+        }
+        
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------
+By using recursion:=====
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        int gcd=0;
+        int n=1;
+        System.out.println("gcd is: "+gcd_cal(a,b,gcd,n));
+    }
+    public static int gcd_cal(int a, int b, int gcd, int n)
+    {
+        if(b!=0 && n>b/2)
+        {
+            return gcd;
+        }
+        
+        if(a==0 && b==0)
+        {
+            System.out.println("gcd cant be determined");
+            return 0;
+        }
+        
+        a=Math.abs(a);
+        b=Math.abs(b);
+        
+        if(a==0)
+        {
+            return b;
+        }
+        if(b==0)
+        {
+            return a;
+        }
+        
+        if(a<b)
+        {
+            int temp;
+            temp=a;
+            a=b;
+            b=temp;
+        }
+        
+        if(a%b==0)
+        {
+            return b;
+        }
+        else
+        {
+            if(a%n==0 && b%n==0){
+                gcd=n;
+            }
+            return gcd_cal(a,b,gcd,n+1);
+        }
+    }
+}
+=======================================================================================================================
+
+2) Repeated subtraction:=======
+if(a>b) then a=a-b;
+otherwise b=b-a;
+continue this untill a==b
+then gcd is a or b
+------------------------------------------------------------------
+Using loop:===========
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        int a, b;
+        Scanner sc=new Scanner(System.in);
+        a=sc.nextInt();
+        b=sc.nextInt();
+        if(a==0 && b==0) 
+        {
+            System.out.println("gcd cant be determined"); 
+            return;
+        }
+        a=Math.abs(a);
+        b=Math.abs(b);
+        if(a==0) 
+        {
+            System.out.println("gcd is: "+b); 
+            return;
+        }
+        if(b==0) 
+        {
+            System.out.println("gcd is: "+a); 
+            return;
+        }
+        while(a!=b)
+        {
+            if(a>b)
+            {
+                a=a-b;
+            }
+            else
+            {
+                b=b-a;
+            }
+        }
+        System.out.println("gcd is: "+a+" or "+b);
+    }
+}
+-------------------------------------------------------------
+Using Recursion:============
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        int a,b;
+        Scanner sc=new Scanner(System.in);
+        a=sc.nextInt();
+        b=sc.nextInt();
+        System.out.println("gcd is: "+gcd_cal(a,b));
+    }
+    public static int gcd_cal(int a, int b)
+    {
+        
+        if(a==b)
+        {
+            return a;
+        }
+        
+        if(a==0&&b==0)
+        {
+            return 0;
+        }
+        a=Math.abs(a);
+        b=Math.abs(b);
+        if(a==0)
+        {
+            return b;
+        }
+        if(b==0)
+        {
+            return a;
+        }
+        
+        if(a>b)
+        {
+            a=a-b;
+            return gcd_cal(a,b);
+        }
+        else
+        {
+            b=b-a;
+            return gcd_cal(a,b);
+        }
+    }
+}
+=================================================================================================================================
+
+3) Euclidean Algorithm:==========
+--------------------------------------------
+Using loop:========
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int a,b,r;
+        a=sc.nextInt();
+        b=sc.nextInt();
+        
+        if(a==0 && b==0)
+        {
+            System.out.println("gcd cant be determined");
+            return;
+        }
+        a=Math.abs(a);
+        b=Math.abs(b);
+        if(a==0)
+        {
+            System.out.println("gcd is: "+b);
+            return;
+        }
+        if(b==0)
+        {
+            System.out.println("gcd is: "+a);
+            return;
+        }
+        
+        int max=Math.max(a,b);
+        int min=Math.min(a,b);
+        
+        a=max;
+        b=min;
+        
+        r=a%b;
+        while(r!=0)
+        {
+            a=b;
+            b=r;
+            r=a%b;
+        }
+        
+        System.out.println("gcd is: "+b);
+    }
+}
+---------------------------------------------------------------------------
+Using recursion:===========
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        int a,b,r;
+        Scanner sc=new Scanner(System.in);
+        a=sc.nextInt();
+        b=sc.nextInt();
+    
+        int g=gcd(a,b);
+        System.out.println("gcd is: "+g);
+    }
+    
+    public static int gcd(int a, int b)
+    {
+        if(a==0 && b==0)
+        {
+            return 0;
+        }
+        a=Math.abs(a);
+        b=Math.abs(b);
+        if(a==0)
+        {
+            return b;
+        }
+        if(b==0)
+        {
+            return a;
+        }
+        int max=Math.max(a,b);
+        int min=Math.min(a,b);
+        a=max;
+        b=min;
+        return gcd(b,a%b);
+    }
+}
+==========================================================================================================

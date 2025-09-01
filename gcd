@@ -1,0 +1,18 @@
+Factor=Divisor
+GCD (Greatest Common Divisor) = GCF (Greatest Common Factor) = GCM (Greatest Common Measure) = HCF (Highest Common Factor) = HCD (Highest Common Divisor)
+GCD only possible for 2 positive Integers. (5,3)
+GCD Not possible for:
+    negative number(s), decimal number(s), both zeros.
+If negative numbers given convert them into positive by multiplying with -1
+If any one number zero, then gcd of two numbers is the non zero number
+Three Methods to find gcd any 2 numbers.
+----------------------------------------------------------------------------------------------------------------------------
+1) Linear or Brute force method:
+let a,b numbers (a>b)
+if(a%b==0) then b is the gcd.
+Otherwise
+take gcd=1, n=1;
+if(a%n==0 && b%n==0) then gcd=n;
+then n++;
+continue this until n<=b/2;
+---------------------------------------------------------------------------------------------------------------------------

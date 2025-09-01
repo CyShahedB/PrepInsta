@@ -6,7 +6,7 @@ GCD Not possible for:
 If negative numbers given convert them into positive by multiplying with -1
 If any one number zero, then gcd of two numbers is the non zero number
 Three Methods to find gcd any 2 numbers.
-----------------------------------------------------------------------------------------------------------------------------
+==========================================================================================================================
 1) Linear or Brute force method:
 let a,b numbers (a>b)
 if(a%b==0) then b is the gcd.

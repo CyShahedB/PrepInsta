@@ -6,6 +6,8 @@ GCD Not possible for:
 If negative numbers given convert them into positive by multiplying with -1
 If any one number zero, then gcd of two numbers is the non zero number
 Three Methods to find gcd any 2 numbers.
+
+* GCD lies in the range from 1 to minimum of 2 numbers. (or) From 1 to min_num/2, then check with min_num
 ==========================================================================================================================
 1) Linear or Brute force method:=================
 let a,b numbers (a>b)

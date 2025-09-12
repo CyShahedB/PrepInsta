@@ -1,4 +1,30 @@
 This is finding LCM of 2 numbers.
+
+* LCM lies in the range of bigger number among 2 numbers to product of 2 numbers.
+So:
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        int a,b,lcm=0;
+        Scanner sc=new Scanner(System.in);
+        a=sc.nextInt();
+        b=sc.nextInt();
+        
+        
+        for(int i=Math.max(a,b); i<=a*b; i=i+Math.max(a,b)) // you can take i=i+1 also. But it leads to unnecessary run of loop
+        {
+            if(i%a==0 && i%b==0)
+            {
+                lcm=i;
+                break;
+            }
+        }
+        System.out.println("lcm is: "+lcm);
+    }
+}
 ==============================================================================================================================================
 the first method is:
 we take 2 values x,y

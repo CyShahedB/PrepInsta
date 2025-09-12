@@ -1,0 +1,77 @@
+This is finding LCM of 2 numbers.
+==============================================================================================================================================
+the first method is:
+we take 2 values x,y
+if(x==y) then LCM is either x or y
+else: then we increment both x and with their multiples and compare all possible multiples of these x and y.
+
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        int x,y;
+        Scanner sc=new Scanner(System.in);
+        x=sc.nextInt();
+        y=sc.nextInt();
+        
+        if(x==y)
+        {
+            System.out.println("lcm is: "+x);
+        }
+        else
+        {
+            outer:
+            for(int i=1;i<=10;i++)
+        {
+            for(int j=1;j<=10;j++)
+            {
+                if(x*i<y*j)
+                {
+                    break;
+                }
+                if(x*i==y*j)
+                {
+                    System.out.println("lcm is: "+x*i);
+                    break outer;
+                }
+            }
+        }
+        }
+        
+    }
+}
+=========================================================================================================================================
+The Second Method:
+Take Max(x,y) as LCM
+then do check 
+    if(LCM%x==0 && LCM%y==0) if true then print that LCM
+otherwise 
+    increment LCM value as LCM=LCM+Max(x,y)
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        int x,y;
+        Scanner sc=new Scanner(System.in);
+        x=sc.nextInt();
+        y=sc.nextInt();
+        int lcm=Math.max(x,y);
+        while(true)
+        {
+            if(lcm%x==0 && lcm%y==0)
+            {
+                System.out.println("lcm is: "+lcm);
+                break;
+            }
+            else
+            {
+                lcm=lcm+Math.max(x,y);
+            }
+        }
+    }
+}
+==================================================================================================================================

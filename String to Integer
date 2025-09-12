@@ -1,0 +1,49 @@
+STRING TO INTEGER CONVERSION:------------
+---------------------------------------------------------------------------------------------
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        String s="1234";
+        int n=Integer.parseInt(s);
+        System.out.println("string is: "+s);
+        System.out.println("number is: "+n);
+    }
+}
+---------------------------------------------------------------------------------------------
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        String s="1234";
+        int m;
+        m=Integer.valueOf(s);
+        System.out.println(m-1);
+        
+    }
+}
+-------------------------------------------------------------------------------------------------
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        String s;
+        int n=0,j=0;
+        Scanner sc=new Scanner(System.in);
+        s=sc.next();
+        int len=s.length();
+        
+        
+        for(int i=len-1; i>=0; i--)
+        {
+            char c= s.charAt(i);
+            int m=c-'0';
+            n=n+m*(int)Math.pow(10,j);
+            j=j+1;
+        }
+        System.out.println("number n: "+n);
+    }
+}

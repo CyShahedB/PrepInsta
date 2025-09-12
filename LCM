@@ -75,3 +75,201 @@ public class Main
     }
 }
 ==================================================================================================================================
+Third Method:
+we can calculate lcm by this formula also, which is always correct:
+lcm(x,y)=x*y/gcd(x,y)
+----------------------------------------------------------------------------------------------------------
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        int A,B,a,b,gcd=1,r,lcm;
+        Scanner sc=new Scanner(System.in);
+        A=sc.nextInt();
+        B=sc.nextInt();
+        a=A;
+        b=B;
+        
+        if(a==0 && b==0)
+        {
+            System.out.println("gcd cant be determined. so lcm cant be determined");
+            return;
+        }
+        a=Math.abs(a);
+        b=Math.abs(b);
+        if(a==0)
+        {
+            gcd=b;
+            System.out.println("gcd is: "+gcd);
+            System.out.println("lcm is: 0");
+            return;
+        }
+        if(b==0)
+        {
+            gcd=a;
+            System.out.println("gcd is: "+gcd);
+            System.out.println("lcm is: 0");
+            return;
+        }
+        if(a<b)
+        {
+            int temp;
+            temp=a;
+            a=b;
+            b=temp;
+        }
+        if(a%b==0)
+        {
+            gcd=b;
+            System.out.println("gcd is: "+gcd);
+        }
+        else
+        {
+        while(true)
+        {
+            r=a%b;
+            if(r==0)
+            {
+                gcd=b;
+                System.out.println("gcd is: "+gcd);
+                break;
+            }
+            a=b;
+            b=r;
+        }
+        }
+        
+        lcm=Math.abs(A*B)/gcd;
+        System.out.println("lcm is: "+lcm);
+    }
+}
+-----------------------------------------------------------------------------------------------------------
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        int a,b,A,B,r,lcm,gcd;
+        Scanner sc=new Scanner(System.in);
+        a=sc.nextInt();
+        b=sc.nextInt();
+        A=a;
+        B=b;
+        if(a==0 && b==0)
+        {
+            System.out.println("gcd cant be determined. LCM is also cant be determined");
+            return;
+        }
+        a=Math.abs(a);
+        b=Math.abs(b);
+        if(a==0)
+        {
+            System.out.println("gcd is: "+b);
+            System.out.println("lcm is: 0");
+            return;
+        }
+        if(b==0)
+        {
+            System.out.println("gcd is: "+a);
+            System.out.println("lcm is: 0");
+            return;
+        }
+        if(a<b)
+        {
+            int temp;
+            temp=a;
+            a=b;
+            b=temp;
+        }
+        if(a%b==0)
+        {
+            System.out.println("gcd is: "+b);
+            gcd=b;
+        }
+        else
+        {
+            while(a!=b)
+            {
+                if(a>b)
+                {
+                    a=a-b;
+                }
+                else
+                {
+                    b=b-a;
+                }
+            }
+            System.out.println("gcd is: "+a);
+            gcd=a;
+        }
+        lcm=Math.abs(A*B)/gcd;
+        System.out.println("lcm is: "+lcm);
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        int a,b,A,B,r,lcm,gcd;
+        Scanner sc=new Scanner(System.in);
+        a=sc.nextInt();
+        b=sc.nextInt();
+        A=a;
+        B=b;
+        if(a==0 && b==0)
+        {
+            System.out.println("gcd cant be determined. LCM is also cant be determined");
+            return;
+        }
+        a=Math.abs(a);
+        b=Math.abs(b);
+        if(a==0)
+        {
+            System.out.println("gcd is: "+b);
+            System.out.println("lcm is: 0");
+            return;
+        }
+        if(b==0)
+        {
+            System.out.println("gcd is: "+a);
+            System.out.println("lcm is: 0");
+            return;
+        }
+        if(a<b)
+        {
+            int temp;
+            temp=a;
+            a=b;
+            b=temp;
+        }
+        if(a%b==0)
+        {
+            System.out.println("gcd is: "+b);
+            gcd=b;
+        }
+        else
+        {
+            while(true)
+            {
+                r=a%b;
+            if(r==0)
+            {
+                gcd=b;
+                break;
+            }
+            else
+            {
+                a=b;
+                b=r;
+            }
+            }
+        }
+        System.out.println("gcd is: "+gcd);
+        lcm=Math.abs(A*B)/gcd;
+        System.out.println("lcm is: "+lcm);
+    }
+}
+==================================================================================================================================
